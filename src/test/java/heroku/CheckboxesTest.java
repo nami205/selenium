@@ -4,12 +4,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class ChexboxesTest {
+import java.time.Duration;
+
+public class CheckboxesTest {
     @Test
-    void tc02(){
+    void tc02 (){
         /*
         Open browser
         Navigate to https://the-internet.herokuapp.com/checkboxes
@@ -29,6 +32,7 @@ public class ChexboxesTest {
         if(!checkbox1.isSelected()){
             checkbox1.click();
         }
+//        Thread.sleep(1000);
         Assert.assertTrue(checkbox1.isSelected());
 
         if(!checkbox2.isSelected()){
@@ -37,7 +41,17 @@ public class ChexboxesTest {
         Assert.assertTrue(checkbox2.isSelected());
 
         driver.quit();
+    }
 
+    void tc03(){
+        WebDriver driver = new ChromeDriver();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(4));
+
+        driver.get("https://moatazeldebsy.github.io/test-automation-practices/#/checkboxes");
+//        wait.until(ExpectedCondition)
+
+
+        driver.quit();
 
     }
 }
